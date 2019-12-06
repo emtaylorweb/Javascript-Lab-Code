@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>Lab 2_Emily Taylor</title>
+		<script language="JavaScript" type="text/JavaScript">
+		
+		var timers = [];
+		
+		var log = (function (outputFunc) {
+			var counter = 0;
+			var callerLog = [];
+			var dateTime = [];
+			//return function that will be called on each interval
+			//taking callerName from startMeUp
+			return (
+				function(caller) {
+				counter++
+				//after 10 executions, stop intervals
+				if (counter > 10) {
+					clearInterval[timers[0]];
+					clearInterval[timers[1]];
+					clearInterval[timers[2]];
+				
+				return;
+				}
+				//add needed data to each array and output information
+					dateTime.push(new Date());
+					
+					callerLog.push(caller)
+					
+					var output = counter.toString() + " " + callerLog[callerLog.length -1] + " " + dateTime[dateTime.length -1]; 
+					
+					outputFunc(output);
+				}
+			);
+		})(printFunc);
+		
+		function printFunc(output) {
+			document.write(output + "<br>");
+		}
+		
+		function startMeUp() {
+			// add each of the timers references to the timers array
+			// as part of invoking the log function following each interval
+			timers.push(setInterval("log('Timer1')", 1000));
+			timers.push(setInterval("log('Timer2')", 1200));
+			timers.push(setInterval("log('Timer3')", 1700));
+		}
+		
+		</script>
+	</head>
+	<body onload="startMeUp();">
+	
+	</body>
+</html>
